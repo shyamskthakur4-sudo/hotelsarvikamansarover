@@ -14,7 +14,7 @@
 
   // Cache Elements
   const heroSection = document.querySelector('.hero-immersive-section');
-  const heroCard = document.querySelector('.hero-editorial-card');
+  const heroCard = document.querySelector('.hero-content-wrap, .hero-editorial-card');
   const heroReservationBar = document.querySelector('.reservation-bar-glass');
 
   // 1. Reading Progress Bar
