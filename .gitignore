@@ -1,0 +1,5 @@
+# Raw heavy camera source files (358 MB) - web uses assets/images/web/
+assets/images/raw/
+node_modules/
+*.log
+.DS_Store

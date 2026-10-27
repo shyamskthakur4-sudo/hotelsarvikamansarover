@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 84" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFCA9B"/>
+      <stop offset="50%" stop-color="#9A783E"/>
+      <stop offset="100%" stop-color="#7D5E28"/>
+    </linearGradient>
+    <linearGradient id="charcoalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1816"/>
+      <stop offset="100%" stop-color="#2D2824"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Icon Mark: Minimalist Architectural Jharokha Arch & 'S' Monogram -->
+  <g transform="translate(10, 6)">
+    <!-- Outer Arch Frame (Jaipur Architectural Silhouette) -->
+    <path d="M36 4 C20 4 10 16 10 32 L10 66 L62 66 L62 32 C62 16 52 4 36 4 Z" 
+          stroke="url(#goldGrad)" stroke-width="2.2" fill="none" stroke-miterlimit="10"/>
+    
+    <!-- Inner Accent Inset Arch -->
+    <path d="M36 10 C24 10 16 19 16 33 L16 62 L56 62 L56 33 C56 19 48 10 36 10 Z" 
+          stroke="#9A783E" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+
+    <!-- Central Finial / Heritage Crest Dot -->
+    <circle cx="36" cy="1" r="2.5" fill="url(#goldGrad)"/>
+
+    <!-- Stylized Modern 'S' monogram nestled in the arch -->
+    <path d="M43 25 C41 22.5 38.5 21 35 21 C29.5 21 26 24.5 26 29 C26 34.5 30 36.8 35 38.8 C41 41.2 46 44 46 50 C46 56 40.5 60 34.5 60 C29 60 25 57 23 53" 
+          stroke="url(#charcoalGrad)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M35 38.8 C37 39.7 39 40.8 40.5 42.2" 
+          stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Small decorative stars / lotus accents -->
+    <circle cx="36" cy="64" r="1.5" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Brand Typography: Luxury Editorial Serif with System Font Fallbacks -->
+  <g transform="translate(86, 12)">
+    <!-- Sub-label / Tagline above -->
+    <text x="0" y="14" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="9" font-weight="700" letter-spacing="4.5" fill="#9A783E">
+      BOUTIQUE HOTEL
+    </text>
+
+    <!-- Main Name -->
+    <text x="0" y="44" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" letter-spacing="3" fill="#1A1816">
+      HOTEL SARVIKA
+    </text>
+
+    <!-- Location Accent / Subtitle -->
+    <text x="2" y="61" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="600" letter-spacing="4" fill="#6E6A63">
+      MANSAROVER • JAIPUR
+    </text>
+  </g>
+</svg>
