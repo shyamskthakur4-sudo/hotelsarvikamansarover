@@ -16,29 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // 2. Mobile Menu Toggle
+  // 2. Mobile Menu Toggle & Body Scroll Lock
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      menuToggle.classList.toggle('open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen);
-    });
+    const toggleMenu = (open) => {
+      const state = typeof open === 'boolean' ? open : !navMenu.classList.contains('open');
+      navMenu.classList.toggle('open', state);
+      menuToggle.classList.toggle('open', state);
+      menuToggle.setAttribute('aria-expanded', state);
+      document.body.classList.toggle('menu-locked', state);
+    };
+
+    menuToggle.addEventListener('click', () => toggleMenu());
 
     // Close when clicking outside or on a link
     document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-        navMenu.classList.remove('open');
-        menuToggle.classList.remove('open');
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('open')) {
+        toggleMenu(false);
       }
     });
 
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
+    navMenu.querySelectorAll('.nav-link, .nav-drawer-btn').forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        menuToggle.classList.remove('open');
+        toggleMenu(false);
       });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
     });
   }
 

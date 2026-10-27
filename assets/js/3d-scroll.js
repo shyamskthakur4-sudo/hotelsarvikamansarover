@@ -133,6 +133,14 @@
 
   // Continuous Lerp Loop for 3D Hero Perspective
   function render3DHero() {
+    if (window.innerWidth < 992) {
+      if (heroCard && heroCard.style.transform !== 'none') {
+        heroCard.style.transform = 'none';
+      }
+      requestAnimationFrame(render3DHero);
+      return;
+    }
+
     mouse.x += (mouse.targetX - mouse.x) * 0.06;
     mouse.y += (mouse.targetY - mouse.y) * 0.06;
 

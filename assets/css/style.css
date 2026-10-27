@@ -1604,8 +1604,21 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE BREAKPOINTS (APP-GRADE LUXURY MOBILE ARCHITECTURE)
    ========================================================================== */
+.mobile-bottom-bar {
+  display: none;
+}
+
+.nav-drawer-footer {
+  display: none;
+}
+
+body.menu-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
 @media (max-width: 1024px) {
   .reservation-bar-glass {
     grid-template-columns: repeat(2, 1fr);
@@ -1650,7 +1663,15 @@ button, input, select, textarea {
 
 @media (max-width: 992px) {
   :root {
-    --header-height: 76px;
+    --header-height: 70px;
+  }
+
+  .site-header {
+    height: 70px;
+  }
+
+  .site-header.scrolled {
+    height: 64px;
   }
 
   .menu-toggle {
@@ -1663,21 +1684,24 @@ button, input, select, textarea {
     left: 0;
     right: 0;
     width: 100%;
+    height: calc(100vh - var(--header-height));
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     flex-direction: column;
-    padding: 24px 20px 32px;
-    gap: 8px;
-    border-radius: 0 0 20px 20px;
+    padding: 20px 20px 40px;
+    gap: 4px;
+    border-radius: 0;
     border: none;
-    border-bottom: 2px solid var(--gold-border);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+    border-top: 1px solid rgba(154, 120, 62, 0.16);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
     transform: translateY(-120%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.35s var(--transition-smooth), opacity 0.3s ease;
     z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.open {
@@ -1688,79 +1712,613 @@ button, input, select, textarea {
 
   .nav-link {
     width: 100%;
-    text-align: center;
-    padding: 12px 20px;
-    font-size: 0.92rem;
+    text-align: left;
+    padding: 13px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
     border-radius: var(--radius-xs);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-link::after {
+    content: "›";
+    font-size: 1.3rem;
+    color: var(--gold-primary);
+    opacity: 0.4;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-link:hover::after, .nav-link.active::after {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .nav-link.active {
+    background: rgba(154, 120, 62, 0.08);
+    border-color: rgba(154, 120, 62, 0.24);
+    color: var(--gold-primary);
+    font-weight: 700;
   }
 
   .nav-actions .btn {
     display: none;
   }
+
+  .nav-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 14px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(154, 120, 62, 0.18);
+    width: 100%;
+  }
+
+  .nav-drawer-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-drawer-btn {
+    padding: 12px 14px;
+    font-size: 0.8rem;
+    text-align: center;
+    justify-content: center;
+    border-radius: var(--radius-xs);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+  }
+
+  .nav-drawer-meta {
+    text-align: center;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .drawer-gst {
+    display: inline-block;
+    background: var(--bg-sand);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: var(--gold-primary);
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 66px;
+  }
+
+  body {
+    padding-bottom: 74px; /* Space for persistent bottom bar */
+  }
+
+  .floating-contact-hub {
+    display: none !important; /* Hide floating bubbles to avoid covering mobile content */
+  }
+
+  /* 1. Header Compact Luxury */
+  .site-header {
+    height: 66px;
+  }
+
+  .site-header.scrolled {
+    height: 62px;
+  }
+
+  .nav-container {
+    padding: 0 14px;
+  }
+
+  .brand-identity-hub {
+    gap: 10px;
+  }
+
+  .brand-crest-mark {
+    width: 38px;
+    height: 42px;
+    padding: 1px;
+  }
+
+  .brand-kicker {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .brand-title {
+    font-size: 1.32rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-location {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-phone-link {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+
+  .menu-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 6px 7px;
+  }
+
+  .menu-toggle .hamburger-bar {
+    width: 20px;
+  }
+
+  /* 2. Hero Section */
+  .hero-immersive-section {
+    padding: 1.6rem 0 3rem;
+    min-height: auto;
+  }
+
+  .hero-editorial-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 12px;
+  }
+
+  .hero-luxury-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .hero-headline-main {
+    font-size: clamp(1.8rem, 6.8vw, 2.35rem);
+    line-height: 1.18;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-lead-description {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .hero-cta-ribbon {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-ribbon .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    font-size: 0.88rem;
+  }
+
+  .hero-highlights-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 14px;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    background: none;
+    border-radius: 0;
+    padding-left: 0;
+  }
+
+  .hero-highlight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .hero-highlight-val {
+    font-size: 1.55rem;
+  }
+
+  .hero-highlight-lbl {
+    font-size: 0.72rem;
+  }
+
+  /* 3. Quick Booking Engine Bar */
+  .reservation-bar-wrapper {
+    margin-top: -24px;
+    margin-bottom: 24px;
+  }
 
   .reservation-bar-glass {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 18px 14px;
+    gap: 12px;
+    border-radius: 12px;
   }
 
   .res-field {
     border-right: none;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(154, 120, 62, 0.16);
+    padding-bottom: 10px;
     padding-right: 0;
   }
 
-  .reservation-bar-glass .btn {
+  .res-field label {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+
+  .res-field input, .res-field select {
+    font-size: 16px !important; /* Strictly prevents iOS Safari auto-zoom */
+    width: 100%;
+    height: 44px;
+    padding: 8px 12px;
+    background: rgba(245, 239, 230, 0.55);
+    border: 1px solid rgba(154, 120, 62, 0.22);
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  #btnQuickBook {
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
     grid-column: span 1;
   }
 
-  .transit-grid-3, .policy-panel-grid {
+  /* 4. Privileges Strip */
+  .privileges-strip {
+    padding: 14px 0;
+  }
+
+  .privileges-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 10px;
+  }
+
+  .privilege-item {
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+
+  /* 5. Inner Page Hero Banner */
+  .inner-page-hero {
+    padding: 3rem 0 2.2rem;
+  }
+
+  .inner-page-hero .heading-display {
+    font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+    line-height: 1.2;
+  }
+
+  /* 6. Editorial Bento (Overview Section) */
+  .editorial-bento-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .editorial-img-master img {
+    height: 250px;
+  }
+
+  .editorial-floating-plate {
+    position: relative;
+    inset: auto;
+    margin: -28px 12px 0 12px;
+    max-width: calc(100% - 24px);
+    box-shadow: var(--shadow-md);
+    padding: 18px 20px;
+  }
+
+  /* 7. Asymmetric Suite Feature Cards & Angles Preview */
+  .suite-feature-card {
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+
+  .suite-split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .suite-image-side {
+    height: 260px;
+    min-height: 260px;
+    max-height: 260px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .suite-image-side img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .room-thumb-strip {
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    margin: 0 !important;
+    padding: 6px 10px !important;
+    background: rgba(18, 16, 14, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    z-index: 10 !important;
+    scrollbar-width: none !important;
+  }
+
+  .room-thumb-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .room-thumb-label {
+    font-size: 0.64rem;
+    margin-right: 2px;
+  }
+
+  .room-thumb-btn {
+    width: 52px;
+    height: 38px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .suite-info-side {
+    padding: 22px 16px 24px;
+  }
+
+  .suite-tag-badge {
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+  }
+
+  .suite-info-side h3 {
+    font-size: 1.7rem !important;
+    margin-bottom: 6px;
+  }
+
+  .suite-price-hero {
+    margin-bottom: 12px;
+  }
+
+  .suite-price-hero .amount {
+    font-size: 2.1rem;
+  }
+
+  .suite-spec-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px 12px;
+    margin: 16px 0 20px;
+    font-size: 0.85rem;
+  }
+
+  /* 8. Romance Package Section */
+  .romance-experience-section {
+    background-attachment: scroll !important;
+    padding: 3.5rem 0;
+  }
+
+  .romance-glass-box {
+    padding: 24px 16px;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+
+  /* 9. Gallery Filters & Masonry */
+  .gallery-filter-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 16px 12px;
+    margin: 0 -16px 1.8rem;
+    scrollbar-width: none;
+  }
+
+  .gallery-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: 0.74rem;
   }
 
   .gallery-masonry {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .gallery-item.span-2-row {
-    height: 300px;
+  .gallery-item, .gallery-item.span-2-row {
+    height: 250px;
   }
 
   .gallery-item.span-2-col {
     grid-column: span 1;
   }
 
+  .gallery-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, rgba(26, 24, 22, 0) 40%, rgba(26, 24, 22, 0.88) 100%);
+    padding: 16px;
+  }
+
+  .gallery-overlay h4 {
+    font-size: 1.1rem;
+  }
+
+  /* 10. Transit & Policies */
+  .transit-grid-3, .policy-panel-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .transit-card, .policy-item-box {
+    padding: 20px 18px;
+  }
+
+  /* 11. Forms */
   .form-grid-2 {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .form-control {
+    font-size: 16px !important;
+    padding: 12px 14px;
+  }
+
+  .contact-info-panel, .booking-form-card {
+    padding: 24px 18px;
+  }
+
+  /* 12. Footer */
+  .site-footer {
+    padding-top: 3.2rem;
+    padding-bottom: 1.8rem;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.2rem;
   }
 
-  .notice-inner {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .notice-contact-list {
+  .footer-bottom {
     flex-direction: column;
-    gap: 6px;
+    text-align: center;
+    gap: 10px;
   }
 
-  .editorial-floating-plate {
-    position: static;
-    max-width: 100%;
-    margin-top: 16px;
+  /* 13. Persistent Mobile Bottom Action Bar */
+  .mobile-bottom-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(154, 120, 62, 0.28);
+    box-shadow: 0 -8px 24px rgba(26, 24, 22, 0.12);
+    z-index: 1000;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    gap: 10px;
+    align-items: center;
   }
 
-  .room-thumb-strip {
-    position: static;
-    margin-top: 10px;
-    background: rgba(18, 16, 14, 0.9);
+  .mobile-bar-btn {
+    flex: 1;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-xs);
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .mobile-bar-btn:active {
+    transform: scale(0.97);
+  }
+
+  .mobile-bar-call {
+    background: #FFFFFF;
+    color: var(--text-primary);
+    border: 1.5px solid rgba(154, 120, 62, 0.35);
+  }
+
+  .mobile-bar-call .mobile-bar-icon {
+    color: var(--gold-primary);
+  }
+
+  .mobile-bar-whatsapp {
+    background: #25D366;
+    color: #FFFFFF;
+    border: 1.5px solid #20BA5A;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  }
+
+  .mobile-bar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-bar-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.15;
+  }
+
+  .mobile-bar-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .mobile-bar-sub {
+    font-size: 0.65rem;
+    opacity: 0.88;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 540px) {
+  .nav-phone-link {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .nav-phone-text {
+    display: none;
+  }
+
+  .nav-phone-link::before {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+
+  .privileges-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }
 
