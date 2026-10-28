@@ -90,6 +90,9 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -98,6 +101,8 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.65;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   position: relative;
 }
@@ -1068,6 +1073,9 @@ h1, h2, h3, h4, .heading-display, .heading-section {
   .editorial-bento-grid {
     grid-template-columns: 1.05fr 1fr;
   }
+  .editorial-bento-grid.grid-reversed {
+    grid-template-columns: 1fr 1.05fr;
+  }
 }
 
 .editorial-narrative-col {
@@ -1117,11 +1125,62 @@ h1, h2, h3, h4, .heading-display, .heading-section {
 @media (min-width: 992px) {
   .editorial-floating-plate {
     position: absolute;
-    bottom: -20px;
-    right: -16px;
+    bottom: 14px;
+    right: 14px;
     margin: 0;
     max-width: 300px;
     box-shadow: var(--shadow-card);
+  }
+}
+
+/* Service & Room Checklists and Mosaics (Bulletproof Responsive) */
+.service-feature-checklist {
+  background: #FFFFFF;
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+
+@media (min-width: 480px) {
+  .service-feature-checklist {
+    grid-template-columns: 1fr 1fr;
+    padding: 18px 24px;
+    gap: 12px;
+  }
+}
+
+.room-gallery-mosaic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 500px) {
+  .room-gallery-mosaic {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .room-gallery-mosaic .main-span-2 {
+    grid-column: span 2;
+  }
+}
+
+.room-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+
+@media (min-width: 480px) {
+  .room-specs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 }
 
@@ -1229,19 +1288,13 @@ h1, h2, h3, h4, .heading-display, .heading-section {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
   z-index: 10;
   background: rgba(18, 16, 14, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 6px 10px;
   border-radius: var(--radius-xs);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.room-thumb-strip::-webkit-scrollbar {
-  display: none;
 }
 
 .room-thumb-label {
@@ -1546,14 +1599,8 @@ h1, h2, h3, h4, .heading-display, .heading-section {
   display: flex;
   align-items: center;
   gap: 8px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 2px 0;
-}
-
-.dining-thumb-row::-webkit-scrollbar {
-  display: none;
+  flex-wrap: wrap;
+  padding: 4px 0;
 }
 
 .dining-thumb-pill {
@@ -1697,25 +1744,15 @@ h1, h2, h3, h4, .heading-display, .heading-section {
    -------------------------------------------------------------------------- */
 .gallery-filter-tabs {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 8px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  flex-wrap: wrap;
   padding: 4px 0 14px;
   margin-bottom: 2rem;
-  scrollbar-width: none;
-}
-
-.gallery-filter-tabs::-webkit-scrollbar {
-  display: none;
 }
 
 @media (min-width: 768px) {
   .gallery-filter-tabs {
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0;
     margin-bottom: 2.8rem;
   }
 }
