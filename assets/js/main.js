@@ -257,4 +257,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 9. Interactive Room Angle Thumbnail Switcher
+  document.querySelectorAll('.suite-image-side').forEach(suiteImgSide => {
+    const mainImg = suiteImgSide.querySelector('img:not(.room-thumb-btn img)');
+    const thumbBtns = suiteImgSide.querySelectorAll('.room-thumb-btn');
+
+    thumbBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const newSrc = btn.getAttribute('data-img-src');
+        const newAlt = btn.getAttribute('data-img-alt');
+        if (mainImg && newSrc && mainImg.getAttribute('src') !== newSrc) {
+          mainImg.style.transition = 'opacity 0.18s ease';
+          mainImg.style.opacity = '0.3';
+          setTimeout(() => {
+            mainImg.src = newSrc;
+            if (newAlt) mainImg.alt = newAlt;
+            mainImg.style.opacity = '1';
+          }, 160);
+          thumbBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        }
+      });
+    });
+  });
+
 });

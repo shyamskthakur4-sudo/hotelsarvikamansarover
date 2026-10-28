@@ -45,8 +45,8 @@
   `;
   backToTopBtn.style.cssText = `
     position: fixed;
-    bottom: 95px;
-    right: 28px;
+    bottom: 24px;
+    right: 20px;
     width: 44px;
     height: 44px;
     border-radius: 50%;
