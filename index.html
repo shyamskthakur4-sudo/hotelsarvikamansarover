@@ -446,18 +446,35 @@
       <div class="container">
         <div class="dining-showcase-grid">
           
-          <!-- Framed Restaurant & Evening Facade Visual -->
+          <!-- Framed Restaurant Showcase Visual -->
           <div class="dining-visual-frame">
             <div class="dining-image-box">
-              <img src="assets/images/web/facade-evening.jpg" alt="Parmpara Restaurant &amp; Cafe Attached at Hotel Sarvika Mansarover Jaipur" loading="lazy">
+              <img id="diningMainPhoto" src="assets/images/web/dining-main-hall.jpg" alt="Parmpara Restaurant &amp; Cafe Main Dining Hall at Hotel Sarvika Mansarover Jaipur" loading="lazy">
               <div class="dining-badge-overlay">
                 <span class="dining-pure-badge">100% Pure Vegetarian</span>
               </div>
               <div class="dining-image-caption-overlay">
-                <span class="dining-location-tag">Mangyawas Road &bull; Mansarovar</span>
-                <span class="dining-name-tag">Parmpara Restaurant &amp; Cafe</span>
+                <span class="dining-location-tag" id="diningPhotoTag">Attached Pure Veg Dining</span>
+                <span class="dining-name-tag" id="diningPhotoTitle">Parmpara Restaurant &amp; Cafe</span>
               </div>
             </div>
+
+            <!-- Multi-Angle Dining Showcase Strip -->
+            <div class="dining-thumb-row" id="diningThumbRow">
+              <button type="button" class="dining-thumb-pill active" data-img-src="assets/images/web/dining-main-hall.jpg" data-tag="Attached Pure Veg Dining" data-title="Parmpara Restaurant Main Hall">
+                Main Hall
+              </button>
+              <button type="button" class="dining-thumb-pill" data-img-src="assets/images/web/dining-cafe-lounge.jpg" data-tag="Coffee &amp; Bites Lounge" data-title="Street-Front Cafe Counter">
+                Cafe Lounge
+              </button>
+              <button type="button" class="dining-thumb-pill" data-img-src="assets/images/web/dining-sofa-booth.jpg" data-tag="Family &amp; Group Seating" data-title="Private Curved Sofa Booth">
+                Sofa Booth
+              </button>
+              <button type="button" class="dining-thumb-pill" data-img-src="assets/images/web/facade-evening.jpg" data-tag="Mangyawas Road Elevation" data-title="Illuminated Evening Facade">
+                Night Facade
+              </button>
+            </div>
+
             <div class="dining-spec-ribbon">
               <div class="spec-pill">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -621,6 +638,14 @@
             <p>Dedicated on-premise reception manager ready to assist with luggage, late arrivals, taxi arrangements, and local city guidance.</p>
           </div>
 
+          <div class="amenity-box">
+            <div class="amenity-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><polyline points="7 10 12 5 17 10"></polyline><polyline points="7 14 12 19 17 14"></polyline></svg>
+            </div>
+            <h3>Modern Passenger Elevator</h3>
+            <p>Automatic lift providing smooth, step-free access across all guest room floors for senior guests and luggage.</p>
+          </div>
+
         </div>
 
       </div>
@@ -645,9 +670,10 @@
         <!-- Interactive Category Filter Tabs -->
         <div class="gallery-filter-tabs">
           <button type="button" class="filter-btn active" data-filter="all">All Photos</button>
+          <button type="button" class="filter-btn" data-filter="dining">Parmpara Dining</button>
           <button type="button" class="filter-btn" data-filter="suites">Suites &amp; Rooms</button>
+          <button type="button" class="filter-btn" data-filter="reception">Lobby &amp; Lift</button>
           <button type="button" class="filter-btn" data-filter="facade">Facade &amp; Ambiance</button>
-          <button type="button" class="filter-btn" data-filter="reception">Reception Lounge</button>
           <button type="button" class="filter-btn" data-filter="romance">Romance Setup</button>
         </div>
 
@@ -662,7 +688,16 @@
             </div>
           </div>
 
-          <!-- Item 2: Signature Premium King Bed -->
+          <!-- Item 2: Parmpara Restaurant Interior -->
+          <div class="gallery-item" data-category="dining">
+            <img src="assets/images/web/dining-main-hall.jpg" alt="Parmpara Pure Veg Restaurant Dining Hall Hotel Sarvika" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Parmpara Restaurant Dining</h4>
+              <p>100% Pure Veg Dining &bull; North Indian Specialties</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Signature Premium King Bed -->
           <div class="gallery-item" data-category="suites">
             <img src="assets/images/web/DSC00281.jpg" alt="Signature Premium Room King Bed Hotel Sarvika" loading="lazy">
             <div class="gallery-overlay">
@@ -671,7 +706,16 @@
             </div>
           </div>
 
-          <!-- Item 3: Deluxe Room Queen Bed -->
+          <!-- Item 4: Passenger Elevator Lobby -->
+          <div class="gallery-item" data-category="reception">
+            <img src="assets/images/web/elevator-lobby.jpg" alt="Modern Passenger Elevator and Granite Lobby Hotel Sarvika" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Passenger Elevator Lobby</h4>
+              <p>Step-Free Elevator Access Across All Floors</p>
+            </div>
+          </div>
+
+          <!-- Item 5: Deluxe Room Queen Bed -->
           <div class="gallery-item" data-category="suites">
             <img src="assets/images/web/DSC00368.jpg" alt="Deluxe Room with Queen Bed Hotel Sarvika" loading="lazy">
             <div class="gallery-overlay">
@@ -680,7 +724,7 @@
             </div>
           </div>
 
-          <!-- Item 4: Reception Counter -->
+          <!-- Item 6: Reception Counter -->
           <div class="gallery-item" data-category="reception">
             <img src="assets/images/web/DSC00484.jpg" alt="Hotel Reception Counter & Front Desk" loading="lazy">
             <div class="gallery-overlay">
@@ -689,7 +733,7 @@
             </div>
           </div>
 
-          <!-- Item 5: Romance Setup -->
+          <!-- Item 7: Romance Setup -->
           <div class="gallery-item" data-category="romance">
             <img src="assets/images/web/DSC00326.jpg" alt="Romantic Celebration Room Setup Hotel Sarvika Mansarover" loading="lazy">
             <div class="gallery-overlay">
@@ -698,8 +742,8 @@
             </div>
           </div>
 
-          <!-- Item 6: Twilight Evening Facade & Parmpara Dining -->
-          <div class="gallery-item" data-category="facade">
+          <!-- Item 8: Twilight Evening Facade & Parmpara Dining -->
+          <div class="gallery-item" data-category="dining">
             <img src="assets/images/web/facade-evening.jpg" alt="Parmpara Restaurant & Cafe Evening Facade Hotel Sarvika" loading="lazy">
             <div class="gallery-overlay">
               <h4>Parmpara Restaurant Attached</h4>

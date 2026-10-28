@@ -1542,6 +1542,43 @@ h1, h2, h3, h4, .heading-display, .heading-section {
   font-weight: 600;
 }
 
+.dining-thumb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 2px 0;
+}
+
+.dining-thumb-row::-webkit-scrollbar {
+  display: none;
+}
+
+.dining-thumb-pill {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.22s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.dining-thumb-pill:hover, .dining-thumb-pill.active {
+  background: var(--gold-gradient);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(154, 120, 62, 0.28);
+}
+
 .dining-spec-ribbon {
   display: grid;
   grid-template-columns: 1fr 1fr;

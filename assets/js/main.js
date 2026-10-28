@@ -283,4 +283,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 10. Interactive Parmpara Dining Angle Switcher
+  const diningMainPhoto = document.getElementById('diningMainPhoto');
+  const diningPhotoTag = document.getElementById('diningPhotoTag');
+  const diningPhotoTitle = document.getElementById('diningPhotoTitle');
+  const diningThumbRow = document.getElementById('diningThumbRow');
+
+  if (diningMainPhoto && diningThumbRow) {
+    const pills = diningThumbRow.querySelectorAll('.dining-thumb-pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
+        const src = pill.getAttribute('data-img-src');
+        const tag = pill.getAttribute('data-tag');
+        const title = pill.getAttribute('data-title');
+        if (src && diningMainPhoto.getAttribute('src') !== src) {
+          diningMainPhoto.style.transition = 'opacity 0.18s ease';
+          diningMainPhoto.style.opacity = '0.3';
+          setTimeout(() => {
+            diningMainPhoto.src = src;
+            if (diningPhotoTag && tag) diningPhotoTag.innerHTML = tag;
+            if (diningPhotoTitle && title) diningPhotoTitle.innerHTML = title;
+            diningMainPhoto.style.opacity = '1';
+          }, 160);
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+        }
+      });
+    });
+  }
+
 });
+
