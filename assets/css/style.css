@@ -2249,6 +2249,53 @@ h1, h2, h3, h4, .heading-display, .heading-section {
   }
 }
 
+/* Developer Agency Credit Signature Bar */
+.footer-developer-credit {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.developer-credit-text {
+  font-size: 0.82rem;
+  color: #B5ACA0;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.developer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  padding: 5px 14px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  transition: all 0.22s ease;
+  line-height: 0;
+}
+
+.developer-logo-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 6px 20px rgba(154, 120, 62, 0.35);
+}
+
+.developer-logo-img {
+  height: 26px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+
 /* Desktop Floating Action Hub */
 .floating-contact-hub {
   position: fixed;
